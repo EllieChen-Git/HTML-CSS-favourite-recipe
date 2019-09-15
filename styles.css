@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
+    margin: 0;
 }
 
 h1 {
@@ -12,24 +13,33 @@ h1 {
 
 h4 {
     text-decoration: underline;
+    font-size: 20px;
 }
+
 
 img {
     border-radius: 15%;
     border: 20px double rgb(253, 253, 227);
+    width: 100%;
+    height: 95%;
 }
 
 .receipe-container {
-    display: flex;
-    justify-content: space-between;
+    margin: 3%;
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-template-rows: 20% auto 35%;
+    grid-template-areas: "image equipment" 
+                         "image ingredients" 
+                         "image steps";
+    grid-gap: 1rem;
 }
 
 .receipe-image {
-    flex: 1;
+    grid-area: image;   
 }
 
 .receipe-text {
-    flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,16 +51,19 @@ img {
 }
 
 #equipment {
+    grid-area: equipment;
     background-color: rgb(199, 230, 240);
     order: 1;
 }
 
 #ingredients {
+    grid-area: ingredients;
     background-color: rgb(247, 241, 242);
     order: 2;
 }
 
 #steps {
+    grid-area: steps;
     background-color: rgb(222, 248, 222);
     order: 3;
 }
